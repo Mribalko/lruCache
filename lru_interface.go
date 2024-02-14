@@ -1,4 +1,4 @@
-package lruCache
+package lrucache
 
 type Cache interface {
 	Set(key Key, value any) bool
