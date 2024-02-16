@@ -11,14 +11,14 @@ import (
 type (
 	Key         string
 	Option      func(*LRUCache) error
-	CleanerFunc func(*LRUCache)
+	cleanerFunc func(*LRUCache)
 )
 
 type LRUCache struct {
 	cap    int           // cache capacity
 	ttl    time.Duration // ttl
 	cancel context.CancelFunc
-	cf     CleanerFunc
+	cf     cleanerFunc
 	mu     sync.Mutex
 	items  map[Key]*list.Element // hash table
 	queue  *list.List            // order list
